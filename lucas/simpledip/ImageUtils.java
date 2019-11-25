@@ -8,6 +8,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImageUtils {
+
+    /**
+     * Reads image from file name
+     *
+     * @param fileName File to read
+     * @return Read image in BufferedImage
+     */
     public static BufferedImage readImage(String fileName) {
         BufferedImage image = null;
         try {
@@ -18,7 +25,12 @@ public class ImageUtils {
         return image;
     }
 
-
+    /**
+     * Converts image data into an RGB array of DoubleMatrix2D
+     *
+     * @param image Image data to read
+     * @return RGB array of DoubleMatrix2D
+     */
     public static DoubleMatrix2D[] imageToDoubleMatrix2D(BufferedImage image) {
         int width = image.getWidth();
         int height = image.getHeight();
@@ -40,6 +52,12 @@ public class ImageUtils {
         };
     }
 
+    /**
+     * Writes image to file
+     *
+     * @param fileName    File name to write
+     * @param rgbMatrix2D RGB array of DoubleMatrix2D to write
+     */
     public static void writeImage(String fileName, DoubleMatrix2D[] rgbMatrix2D) {
         BufferedImage output = new BufferedImage(rgbMatrix2D[0].shape[1], rgbMatrix2D[0].shape[0], BufferedImage.TYPE_INT_ARGB);
         for (int i = 0; i < rgbMatrix2D[0].shape[0]; i++) {
